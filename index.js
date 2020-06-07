@@ -2,7 +2,7 @@
 var fetchSlider = document.querySelector('.slider');
 var fetchMainPicture  = document.querySelector('.MiddlePicture')
 var animate = new TimelineMax();
-
+//changes
 animate.fromTo(fetchSlider, 1, {x : '0%'}, {x : '-100%', ease : Power2.easeInOut});
 animate.fromTo(fetchMainPicture, 0.5, {width : '100%'}, {width : '90%' , ease : Power2.easeInOut});
 
