@@ -213,7 +213,7 @@ function FillHTMLInPosition(ObjectCountry)
                 clearInterval(SetTotalDeaths)
             }
 
-        }
+        } 
         function framesForNewRecovered(){
             if(CounterforNewRecovered!=ObjectCountry.NewRecovered)
             {
