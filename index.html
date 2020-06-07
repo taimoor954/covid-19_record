@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="main.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.2/css/all.css" />
+    <!-- forfont-awesome 
+     -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.9.3/Chart.min.js"></script>  
+
+    <!-- for chart.js
+     -->
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <div class="container">
+         
+            <div class="main">
+                        <div class="row1">
+                            <div class="logo flex">
+                                <p>logo</p>
+                            </div>
+                            <div class="navigationBar flex ">
+                                <div class="Box flex c">
+                                    <div class="line l1"></div>
+                                    <div class="line l2"></div>
+                                    <div class="line l3"></div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="MiddleContent flex">
+                            <div class="MiddlePicture"></div>
+                        </div>
+                        
+                        <div class="row3"></div>
+                        <div class="slider"></div>    
+                    </div>
+                    <div class="Page2 ">
+                        <h1 class="CoronaHeading lax" data-lax-preset="rightToLeft-0.2" >Covid-19</h1>
+                        <p class="coronaPara lax" data-lax-preset="blurInOut-3 ">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Modi, ratione! Quibusdam suscipit sed quidem, totam nostrum quia atque magni praesentium, dolore quas nobis nemo ipsum alias amet exercitationem similique eligendi.</p>
+                        <div class="box1 lax"  data-lax-preset="spin-250"></div>
+                        <div class="box2"></div>
+                    
+                    </div>
+                <div class="Page3 ">
+                    <div class="Page3Content">
+                        <div class="text " >
+                            <h1 class="Country flex ">Pakistan</h1>
+                            <div class="TextDiv flex ">
+                                <input type="text" class="SearchCountry">
+                                <div class="submit flex">submit</div>
+                            </div>
+
+                        </div>
+                        <div class="CoronaCases">
+
+                                <div class="c ct flex">
+                                        <h1>New Confirmed</h1>
+                                        <i class="fab fa-accessible-icon"></i>
+                                        <h1 class="NewConfirmedFigure">0
+                                        </h1>
+                
+                                    </div>
+
+                                    <div class="c ct flex">
+                                            <h1>
+                                                Total Confirmed
+                                            </h1>
+                                            <i class="fas fa-clinic-medical"></i>
+                                            <h1 class="TotalConfirmedFigure">0
+                                            </h1>
+                    
+                                        </div>
+                    
+                                        <div class="c ct flex">
+                                            <h1>New Deaths</h1>
+                                            <i class="fal fa-flask-potion"></i>
+                                            <h1 class="NewDeathsFigure">0</h1>
+
+
+                                            </div>
+                                            <div class="c ct flex">
+                                                    <h1>Total Deaths</h1>
+                                                    <h1 class="TotalDeathsFigure">0
+                                                    </h1>
+                            
+                                                </div><div class="c ct flex">
+                                                        <h1>New Recovered</h1>
+                                                        <h1 class="NewRecoveredFigure">0
+                                                        </h1>
+                                
+                                                    </div><div class="c ct flex">
+                                                            <h1 >Total Recovered</h1>
+                                                            <h1 class="TotalRecoveredFigure">0
+                                                            </h1>
+                                    
+                                                        </div>
+                                            
+                        </div>
+                          
+                        </div>
+
+                    </div>
+                    <div class="Graph">
+                        <div class="GraphColoum flex ">
+                            <div class="chart-container" height = "100vh" width = "100vw">
+                                <canvas class="MyChart">
+
+                                </canvas>
+    
+                            </div>
+
+                        </div>
+                
+                    </div>
+                    <div class="Sops"></div>
+
+
+
+                </div>
+                                              
+                    </div>
+            
+        
+
+
+<script src="node_modules/lax.js/lib/lax.min.js" ></script>
+
+<script>
+window.onload = function() {
+	lax.setup() // init
+
+	const updateLax = () => {
+		lax.update(window.scrollY)
+		window.requestAnimationFrame(updateLax)
+	}
+
+	window.requestAnimationFrame(updateLax)
+}
+</script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TimelineMax.min.js" integrity="sha256-fIkQKQryItPqpaWZbtwG25Jp2p5ujqo/NwJrfqAB+Qk=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js" integrity="sha256-lPE3wjN2a7ABWHbGz7+MKBJaykyzqCbU96BJWjio86U=" crossorigin="anonymous"></script>
+    <script src="index.js"></script>
+
+</body>
+</html>
