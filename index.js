@@ -2,7 +2,8 @@
 var fetchSlider = document.querySelector('.slider');
 var fetchMainPicture  = document.querySelector('.MiddlePicture')
 var fetchMiddleText= document.querySelector('.MiddleText');
-console.log(fetchMiddleText);
+// console.log(fetchMiddleText);
+
 var animate = new TimelineMax();
 //changes
 //animation
@@ -12,7 +13,8 @@ animate.fromTo(fetchSlider, 1, {x : '0%'}, {x : '-100%', ease : Power2.easeInOut
 //details
 //UsingAPI
 var fetchSearch = document.querySelector('.SearchCountry');
-console.log(fetchSearch);
+// console.log(fetchSearch);
+
 var fetchCountry = document.querySelector('.Country');
 var fetchNewConfirmedFigure = document.querySelector('.NewConfirmedFigure');
 var fetchTotalConfirmedFigure = document.querySelector('.TotalConfirmedFigure');
@@ -44,7 +46,8 @@ function destroyMyGraph()
     if(barChart)
     {
         window.barChart.destroy();
-        console.log('destroyed');
+        // console.log('destroyed');
+    
     }
 
 }
@@ -88,7 +91,8 @@ function CountryDetails(data, CountryName)
         
         }; 
         //function GetYourGraph()
-        console.log(ObjectCountry);
+        // console.log(ObjectCountry);
+
         ChangeCountryText(ObjectCountry.Country);
         GetYourGraph();
         ClearHtml(); //to clear al  l the html
@@ -140,7 +144,7 @@ function FillHTMLInPosition(ObjectCountry)
         SetNewRecovered = setInterval(framesForNewRecovered,25);
         SetTotalRecovered = setInterval(framesForTotalRecovered,25);
 
-        console.log(ObjectCountry.NewConfirmed);  
+        // console.log(ObjectCountry.NewConfirmed);  
        
         function frames()
         {
@@ -297,7 +301,8 @@ window.addEventListener('load',  async function()
     try{
         var response = await fetch('https://api.covid19api.com/summary');
          data  = await response.json();
-         console.log('done');
+        //  console.log('done');
+
          var CountryName =  fetchCountry.innerHTML;     // fetching Already Written Pakistan in html 
          CountryDetails(data, CountryName)              //passing data and country to get details
         fetchSubmit.addEventListener('click', function()
