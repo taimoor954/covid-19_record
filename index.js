@@ -5,8 +5,11 @@ var fetchMiddleText= document.querySelector('.MiddleText');
 console.log(fetchMiddleText);
 var animate = new TimelineMax();
 //changes
+//animation
 animate.fromTo(fetchSlider, 1, {x : '0%'}, {x : '-100%', ease : Power2.easeInOut})
 .fromTo(fetchMainPicture, 0.5, {width : '100%'}, {width : '90%' , ease : Power2.easeInOut} , "-=0.6");
+
+//details
 //UsingAPI
 var fetchSearch = document.querySelector('.SearchCountry');
 console.log(fetchSearch);
@@ -34,43 +37,10 @@ var SetTotalRecovered;
 var ObjectCountry 
 var data;
 var totalData;
-window.addEventListener('load',  async function()
-{
-    //Fetching API in event load so that json file get loaded once window is ready
-    try{
-        var response = await fetch('https://api.covid19api.com/summary');
-         data  = await response.json();
-         console.log('done');
-         var CountryName =  fetchCountry.innerHTML;     // fetching Already Written Pakistan in html 
-         CountryDetails(data, CountryName)              //passing data and country to get details
-        fetchSubmit.addEventListener('click', function()
-        {
-            destroyMyGraph();
-           var SearchCountryValue =  fetchSearch.value.charAt(0).toUpperCase() + fetchSearch.value.slice(1).toLowerCase();
-           if(SearchCountryValue=="")
-           {
-            ClearAllInterval(); //clear every timer when sth is searched
-               
-            CountryDetails(data, CountryName); //if nothing is written in the input bar then Pass Pakistan as  Country //Detail
-            
-            
-            }
-           else{
-                ClearAllInterval(); //clear every timer when sth is searched
-               
-                CountryDetails(data, SearchCountryValue)   //else if sth is written in search bar then pass that written
-                                        //countryDetails            
-           
-            }
-        });
 
-    }
-    catch(error){
-        console.log(error.message);
-    }
-})
 function destroyMyGraph()
 {
+    //if bar chart is created, destroy it to get another one
     if(barChart)
     {
         window.barChart.destroy();
@@ -79,6 +49,7 @@ function destroyMyGraph()
 
 }
 function ClearAllInterval(){
+    //reset my timer
     clearInterval(SetMyNewConfirmedCases);
     clearInterval(SetTotalConfirmedCases);
     clearInterval(SetNewDeaths);
@@ -88,6 +59,7 @@ function ClearAllInterval(){
 }
 function CountryDetails(data, CountryName)
 {
+    //get your country
     //assign values to the country you get
     var ArrayForCountries = data.Countries;
     var FoundCountry = ArrayForCountries.find(element => element.Country == CountryName);
@@ -135,7 +107,7 @@ function ChangeCountryText(country)
 
 function ClearHtml()
 {
-
+    //clear all my html   
     //To Clear EveryChild node
     fetchNewConfirmedFigure.innerHTML = "0";
 
@@ -150,6 +122,7 @@ function ClearHtml()
 }
 function FillHTMLInPosition(ObjectCountry)
 {
+    //run my timer
         
     // GetYourGraph(ObjectCountry);
        
@@ -242,6 +215,7 @@ function FillHTMLInPosition(ObjectCountry)
   
 
     function GetYourGraph(){
+            //create my graph
         
         var MyDataForGraph = [ObjectCountry.NewConfirmed,
             ObjectCountry.TotalConfirmed,
@@ -251,7 +225,7 @@ ObjectCountry.NewRecovered,
 ObjectCountry.TotalRecovered];
 
  barChart = new Chart(FetchMyChart,{
-    
+
         type : 'bar', //type of chart 
         data: {
             labels : ['NewConfirmedCases','TotalConfirmedCases','NewDeaths','TotalDeaths','NewRecovered','TotalRecovered'],
@@ -312,3 +286,43 @@ ObjectCountry.TotalRecovered];
     );
    
         };
+
+
+
+
+        //MAIN CODE SECTION
+window.addEventListener('load',  async function()
+{
+    //Fetching API in event load so that json file get loaded once window is ready
+    try{
+        var response = await fetch('https://api.covid19api.com/summary');
+         data  = await response.json();
+         console.log('done');
+         var CountryName =  fetchCountry.innerHTML;     // fetching Already Written Pakistan in html 
+         CountryDetails(data, CountryName)              //passing data and country to get details
+        fetchSubmit.addEventListener('click', function()
+        {
+            destroyMyGraph();
+           var SearchCountryValue =  fetchSearch.value.charAt(0).toUpperCase() + fetchSearch.value.slice(1).toLowerCase();
+           if(SearchCountryValue=="")
+           {
+            ClearAllInterval(); //clear every timer when sth is searched
+               
+            CountryDetails(data, CountryName); //if nothing is written in the input bar then Pass Pakistan as  Country //Detail
+            
+            
+            }
+           else{
+                ClearAllInterval(); //clear every timer when sth is searched
+               
+                CountryDetails(data, SearchCountryValue)   //else if sth is written in search bar then pass that written
+                                        //countryDetails            
+           
+            }
+        });
+
+    }
+    catch(error){
+        console.log(error.message);
+    }
+})
