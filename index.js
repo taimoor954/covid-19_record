@@ -1,11 +1,12 @@
 //animating main page/1st page
 var fetchSlider = document.querySelector('.slider');
 var fetchMainPicture  = document.querySelector('.MiddlePicture')
+var fetchMiddleText= document.querySelector('.MiddleText');
+console.log(fetchMiddleText);
 var animate = new TimelineMax();
 //changes
-animate.fromTo(fetchSlider, 1, {x : '0%'}, {x : '-100%', ease : Power2.easeInOut});
-animate.fromTo(fetchMainPicture, 0.5, {width : '100%'}, {width : '90%' , ease : Power2.easeInOut});
-
+animate.fromTo(fetchSlider, 1, {x : '0%'}, {x : '-100%', ease : Power2.easeInOut})
+.fromTo(fetchMainPicture, 0.5, {width : '100%'}, {width : '90%' , ease : Power2.easeInOut} , "-=0.6");
 //UsingAPI
 var fetchSearch = document.querySelector('.SearchCountry');
 console.log(fetchSearch);
@@ -48,13 +49,15 @@ window.addEventListener('load',  async function()
            var SearchCountryValue =  fetchSearch.value.charAt(0).toUpperCase() + fetchSearch.value.slice(1).toLowerCase();
            if(SearchCountryValue=="")
            {
-            
+            ClearAllInterval(); //clear every timer when sth is searched
+               
             CountryDetails(data, CountryName); //if nothing is written in the input bar then Pass Pakistan as  Country //Detail
             
             
             }
            else{
                 ClearAllInterval(); //clear every timer when sth is searched
+               
                 CountryDetails(data, SearchCountryValue)   //else if sth is written in search bar then pass that written
                                         //countryDetails            
            
